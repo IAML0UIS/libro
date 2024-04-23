@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+	font-family: "Poppin", sans-serif;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-family: "Roboto", sans-serif;
+
+
+	background: linear-gradient(90deg, #fff 50%, #ab9680 50%);
+}
+.book {
+	width: 350px;
+	height: 450px;
+	position: relative;
+	transition-duration: 1s;
+	perspective: 1500;
+	
+}
+input {
+	display: none;
+}
+.cover, .back-cover {
+	background-color: #5f4633;
+	width: 100%;
+	height: 100%;
+	border-radius: 0 15px 15px 0;
+	box-shadow: 0 10px 5px rgb(52, 43, 43);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform-origin: center left;
+
+	
+}
+.cover {
+	position: absolute;
+	z-index: 6;
+	transition: transform 1s;
+
+	
+}
+.cover label {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+.back-cover {
+	position: relative;
+	z-index: -1;
+	background-color: #fff;
+}
+.page {
+	position: absolute;
+	background-color: white;
+	width: 330px;
+	height: 430px;
+	border-radius: 0 15px 15px 0;
+	margin-top: 10px;
+	transform-origin: left;
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+	transition-duration: 1.5s;
+
+	
+}
+.page img {
+	width: 100%;
+	height: 100%;
+	border-radius: 15px 0 0 15px;
+	
+}
+.front-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	box-sizing: border-box;
+	padding: 1rem;
+
+	box-shadow: inset 7px 0px 30px -5px rgb(44, 43, 43);
+	 
+	
+	
+	
+}
+.back-page {
+	transform: rotateY(180deg);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	z-index: 99;
+	
+	
+}
+.next, .prev {
+	position: absolute;
+	bottom: 1em;
+	cursor: pointer;
+}
+.next {
+	right: 1em;
+}
+.prev {
+	left: 1em;
+}
+#page1 {
+	z-index: 5;
+}
+#page2 {
+	z-index: 4;
+}
+#page3 {
+	z-index: 3;
+}
+#page4 {
+	z-index: 2;
+}
+#page6 {
+	z-index: 1;
+}
+#page {
+	z-index: 1;
+}
+#checkbox-cover:checked ~ .book {
+	transform: translateX(200px);
+}
+#checkbox-cover:checked ~ .book .cover {
+	transition: transform 1.5s, z-index 0.5s 0.5s;
+	transform: rotateY(-180deg);
+	z-index: 1;
+}
+#checkbox-cover:checked ~ .book .page {
+	box-shadow: 0 0 3px rgb(99, 98, 98);
+}
+#checkbox-page1:checked ~ .book #page1 {
+	transform: rotateY(-180deg);
+	z-index: 5;
+}
+#checkbox-page2:checked ~ .book #page2 {
+	transform: rotateY(-180deg);
+	z-index: 4;
+	
+}
+
+#checkbox-page3:checked ~ .book #page3 {
+	transform: rotateY(-180deg);
+	z-index: 3;
+ }
+
+ #checkbox-page4:checked ~ .book #page4 {
+	transform: rotateY(-180deg);
+	z-index: 2;
+ }
+
+ #checkbox-page5:checked ~ .book #page5 {
+	transform: rotateY(-180deg);
+	z-index: 1;
+ }
